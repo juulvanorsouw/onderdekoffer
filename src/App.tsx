@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import milanBg from './assets/milan.jpg'
+import OrderScreen from './components/OrderScreen'
 import RevealScreen from './components/RevealScreen'
 import SetupScreen from './components/SetupScreen'
-import { assignRoles } from './gameLogic'
+import { assignRoles, shuffle } from './gameLogic'
 import type { GameSettings, Player, Screen as ScreenName } from './types'
 
 const DEFAULT_SETTINGS: GameSettings = {
@@ -17,6 +18,7 @@ export default function App() {
   const [settings, setSettings] = useState<GameSettings>(DEFAULT_SETTINGS)
   const [players, setPlayers] = useState<Player[]>([])
   const [lastContinent, setLastContinent] = useState<string | null>(null)
+  const [speakOrder, setSpeakOrder] = useState<string[]>([])
 
   const startGame = (playerNames: string[], gameSettings: GameSettings) => {
     const { players: newPlayers, continent } = assignRoles(playerNames, gameSettings, lastContinent)
@@ -24,10 +26,13 @@ export default function App() {
     setSettings(gameSettings)
     setPlayers(newPlayers)
     setLastContinent(continent)
+    setSpeakOrder(shuffle(playerNames))
     setScreen('reveal')
   }
 
-  const handleRevealDone = () => setScreen('setup')
+  const handleRevealDone = () => setScreen('order')
+
+  const handleOrderDone = () => setScreen('setup')
 
   return (
     <div
@@ -36,6 +41,7 @@ export default function App() {
     >
       {screen === 'setup' && <SetupScreen initialNames={names} settings={settings} onStart={startGame} />}
       {screen === 'reveal' && <RevealScreen players={players} onDone={handleRevealDone} />}
+      {screen === 'order' && <OrderScreen names={speakOrder} onDone={handleOrderDone} />}
     </div>
   )
 }

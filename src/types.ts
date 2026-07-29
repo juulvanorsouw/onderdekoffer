@@ -9,7 +9,7 @@ export interface Player {
   hasRevealed: boolean
 }
 
-export type Screen = 'setup' | 'reveal'
+export type Screen = 'setup' | 'reveal' | 'order'
 
 export interface GameSettings {
   undercoverCount: number
