@@ -1,0 +1,133 @@
+export interface WordPair {
+  category: string
+  a: string
+  b: string
+  continent?: string
+}
+
+export const CATEGORIES = [
+  'Eten & Drinken',
+  'Dieren',
+  'Plekken',
+  'Voorwerpen',
+  'Beroepen',
+  'Geografie',
+  'Vervoer',
+  'Sport',
+] as const
+
+export const WORD_PAIRS: WordPair[] = [
+  // Eten & Drinken
+  { category: 'Eten & Drinken', a: 'Koffie', b: 'Thee' },
+  { category: 'Eten & Drinken', a: 'Pizza', b: 'Hamburger' },
+  { category: 'Eten & Drinken', a: 'Taart', b: 'Appeltaart' },
+  { category: 'Eten & Drinken', a: 'Boter', b: 'Margarine' },
+  { category: 'Eten & Drinken', a: 'Zout', b: 'Suiker' },
+  { category: 'Eten & Drinken', a: 'Wijn', b: 'Bier' },
+  { category: 'Eten & Drinken', a: 'Noedels', b: 'Rijst' },
+  { category: 'Eten & Drinken', a: 'Appel', b: 'Peer' },
+  { category: 'Eten & Drinken', a: 'Citroen', b: 'Limoen' },
+  { category: 'Eten & Drinken', a: 'Melk', b: 'Karnemelk' },
+  { category: 'Eten & Drinken', a: 'Soep', b: 'Stamppot' },
+  { category: 'Eten & Drinken', a: 'Chocolade', b: 'Karamel' },
+  { category: 'Eten & Drinken', a: 'Frikandel', b: 'Kroket' },
+  { category: 'Eten & Drinken', a: 'Patat', b: 'Friet' },
+  // Dieren
+  { category: 'Dieren', a: 'Kat', b: 'Hond' },
+  { category: 'Dieren', a: 'Leeuw', b: 'Tijger' },
+  { category: 'Dieren', a: 'Paard', b: 'Zebra' },
+  { category: 'Dieren', a: 'Kikker', b: 'Pad' },
+  { category: 'Dieren', a: 'Arend', b: 'Havik' },
+  { category: 'Dieren', a: 'Haai', b: 'Dolfijn' },
+  { category: 'Dieren', a: 'Spin', b: 'Schorpioen' },
+  { category: 'Dieren', a: 'Konijn', b: 'Haas' },
+  { category: 'Dieren', a: 'Krokodil', b: 'Alligator' },
+  { category: 'Dieren', a: 'Uil', b: 'Vleermuis' },
+  // Plekken
+  { category: 'Plekken', a: 'Strand', b: 'Woestijn' },
+  { category: 'Plekken', a: 'Berg', b: 'Heuvel' },
+  { category: 'Plekken', a: 'Stad', b: 'Dorp' },
+  { category: 'Plekken', a: 'School', b: 'Universiteit' },
+  { category: 'Plekken', a: 'Ziekenhuis', b: 'Huisartsenpost' },
+  { category: 'Plekken', a: 'Vliegveld', b: 'Treinstation' },
+  { category: 'Plekken', a: 'Museum', b: 'Bibliotheek' },
+  { category: 'Plekken', a: 'Restaurant', b: 'Café' },
+  { category: 'Plekken', a: 'Oerwoud', b: 'Bos' },
+  { category: 'Plekken', a: 'Meer', b: 'Rivier' },
+  { category: 'Plekken', a: 'Kasteel', b: 'Paleis' },
+  // Voorwerpen
+  { category: 'Voorwerpen', a: 'Telefoon', b: 'Tablet' },
+  { category: 'Voorwerpen', a: 'Pen', b: 'Potlood' },
+  { category: 'Voorwerpen', a: 'Stoel', b: 'Kruk' },
+  { category: 'Voorwerpen', a: 'Paraplu', b: 'Regenjas' },
+  { category: 'Voorwerpen', a: 'Portemonnee', b: 'Handtas' },
+  { category: 'Voorwerpen', a: 'Klok', b: 'Horloge' },
+  { category: 'Voorwerpen', a: 'Zwaard', b: 'Mes' },
+  { category: 'Voorwerpen', a: 'Gitaar', b: 'Viool' },
+  { category: 'Voorwerpen', a: 'Rugzak', b: 'Koffer' },
+  { category: 'Voorwerpen', a: 'Kaars', b: 'Lamp' },
+  // Beroepen
+  { category: 'Beroepen', a: 'Dokter', b: 'Verpleegkundige' },
+  { category: 'Beroepen', a: 'Leraar', b: 'Professor' },
+  { category: 'Beroepen', a: 'Politieagent', b: 'Brandweerman' },
+  { category: 'Beroepen', a: 'Chef-kok', b: 'Bakker' },
+  { category: 'Beroepen', a: 'Piloot', b: 'Matroos' },
+  { category: 'Beroepen', a: 'Acteur', b: 'Zanger' },
+  { category: 'Beroepen', a: 'Advocaat', b: 'Rechter' },
+  { category: 'Beroepen', a: 'Boer', b: 'Tuinman' },
+  // Geografie — steden/landen die dicht bij elkaar liggen, verspreid over continenten
+  { category: 'Geografie', continent: 'Europa', a: 'Amsterdam', b: 'Rotterdam' },
+  { category: 'Geografie', continent: 'Europa', a: 'Den Haag', b: 'Utrecht' },
+  { category: 'Geografie', continent: 'Europa', a: 'België', b: 'Nederland' },
+  { category: 'Geografie', continent: 'Europa', a: 'Antwerpen', b: 'Brussel' },
+  { category: 'Geografie', continent: 'Europa', a: 'Maastricht', b: 'Luik' },
+  { category: 'Geografie', continent: 'Europa', a: 'Enschede', b: 'Münster' },
+  { category: 'Geografie', continent: 'Europa', a: 'Duitsland', b: 'Oostenrijk' },
+  { category: 'Geografie', continent: 'Europa', a: 'Frankrijk', b: 'Spanje' },
+  { category: 'Geografie', continent: 'Europa', a: 'Italië', b: 'Zwitserland' },
+  { category: 'Geografie', continent: 'Europa', a: 'Noorwegen', b: 'Zweden' },
+  { category: 'Geografie', continent: 'Europa', a: 'Denemarken', b: 'Duitsland' },
+  { category: 'Geografie', continent: 'Europa', a: 'Polen', b: 'Duitsland' },
+  { category: 'Geografie', continent: 'Europa', a: 'Portugal', b: 'Spanje' },
+  { category: 'Geografie', continent: 'Europa', a: 'Griekenland', b: 'Turkije' },
+  // Geografie — Azië
+  { category: 'Geografie', continent: 'Azië', a: 'Tokio', b: 'Seoul' },
+  { category: 'Geografie', continent: 'Azië', a: 'China', b: 'Japan' },
+  { category: 'Geografie', continent: 'Azië', a: 'Thailand', b: 'Vietnam' },
+  { category: 'Geografie', continent: 'Azië', a: 'India', b: 'Pakistan' },
+  { category: 'Geografie', continent: 'Azië', a: 'Dubai', b: 'Abu Dhabi' },
+  { category: 'Geografie', continent: 'Azië', a: 'Maleisië', b: 'Indonesië' },
+  // Geografie — Afrika
+  { category: 'Geografie', continent: 'Afrika', a: 'Marokko', b: 'Algerije' },
+  { category: 'Geografie', continent: 'Afrika', a: 'Kenia', b: 'Tanzania' },
+  { category: 'Geografie', continent: 'Afrika', a: 'Egypte', b: 'Soedan' },
+  { category: 'Geografie', continent: 'Afrika', a: 'Kaapstad', b: 'Johannesburg' },
+  { category: 'Geografie', continent: 'Afrika', a: 'Nigeria', b: 'Ghana' },
+  // Geografie — Noord-Amerika
+  { category: 'Geografie', continent: 'Noord-Amerika', a: 'New York', b: 'Los Angeles' },
+  { category: 'Geografie', continent: 'Noord-Amerika', a: 'Canada', b: 'Verenigde Staten' },
+  { category: 'Geografie', continent: 'Noord-Amerika', a: 'Mexico', b: 'Cuba' },
+  { category: 'Geografie', continent: 'Noord-Amerika', a: 'Toronto', b: 'Montreal' },
+  // Geografie — Zuid-Amerika
+  { category: 'Geografie', continent: 'Zuid-Amerika', a: 'Brazilië', b: 'Argentinië' },
+  { category: 'Geografie', continent: 'Zuid-Amerika', a: 'Peru', b: 'Bolivia' },
+  { category: 'Geografie', continent: 'Zuid-Amerika', a: 'Colombia', b: 'Venezuela' },
+  { category: 'Geografie', continent: 'Zuid-Amerika', a: 'Chili', b: 'Ecuador' },
+  // Geografie — Oceanië
+  { category: 'Geografie', continent: 'Oceanië', a: 'Australië', b: 'Nieuw-Zeeland' },
+  { category: 'Geografie', continent: 'Oceanië', a: 'Sydney', b: 'Melbourne' },
+  { category: 'Geografie', continent: 'Oceanië', a: 'Fiji', b: 'Samoa' },
+  // Vervoer
+  { category: 'Vervoer', a: 'Fiets', b: 'Scooter' },
+  { category: 'Vervoer', a: 'Trein', b: 'Metro' },
+  { category: 'Vervoer', a: 'Auto', b: 'Bus' },
+  { category: 'Vervoer', a: 'Boot', b: 'Veerboot' },
+  { category: 'Vervoer', a: 'Vliegtuig', b: 'Helikopter' },
+  { category: 'Vervoer', a: 'Tram', b: 'Trein' },
+  // Sport
+  { category: 'Sport', a: 'Voetbal', b: 'Rugby' },
+  { category: 'Sport', a: 'Tennis', b: 'Badminton' },
+  { category: 'Sport', a: 'Zwemmen', b: 'Schaatsen' },
+  { category: 'Sport', a: 'Basketbal', b: 'Volleybal' },
+  { category: 'Sport', a: 'Hardlopen', b: 'Wielrennen' },
+]
